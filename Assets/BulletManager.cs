@@ -32,6 +32,8 @@ public class BulletManager : MonoBehaviour
         bulletReady.RemoveAt(0);
         bulletNotReady.Add(bullet);
 
+        bullet.enabled = true;
+
         bullet.transform.position = position;
         bullet.transform.rotation = Quaternion.Euler(0, 0, -90+
             Mathf.Atan2(direction.y, direction.x) * 180.0f / Mathf.PI);

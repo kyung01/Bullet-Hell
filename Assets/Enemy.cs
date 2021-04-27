@@ -12,4 +12,10 @@ public class Enemy : Entity
          Bullet.BulletTarget.PLAYER, Bullet.BulletType.DEFAULT,
          this.transform.position, Vector3.down);
     }
+    public override void Update()
+    {
+        base.Update();
+        FireBullet();
+
+    }
 }

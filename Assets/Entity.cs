@@ -10,6 +10,16 @@ public class Entity : MonoBehaviour
     bool isBulletReady = true;
     bool isAlive = true;
 
+    public bool IsAlive
+    {
+        get
+        {
+            return isAlive;
+        }
+    }
+
+
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -60,7 +70,7 @@ public class Entity : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (!isBulletReady)
         {
