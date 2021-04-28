@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  bulletFireDelay: 0.3
+  bulletFireDelay: 0.1
 --- !u!4 &511963305
 Transform:
   m_ObjectHideFlags: 0
@@ -1368,6 +1368,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1379091021}
   text: {fileID: 6110513}
+  ultimateIcon00: {fileID: 970196830}
+  ultimateIcon01: {fileID: 382700038}
+  ultimateIcon02: {fileID: 297016535}
 --- !u!4 &1305970181
 Transform:
   m_ObjectHideFlags: 0
@@ -1433,7 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5da144bfba4e14cb5f449e220cd2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 100
   bulletFireDelay: 0.1
 --- !u!4 &1379091022
 Transform:
