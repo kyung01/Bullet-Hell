@@ -1,8 +1,20 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public delegate void DEL_ENTITY_HEALTH_CHANGED(int healthBefore, int healthAfter);
+
+    public List<DEL_ENTITY_HEALTH_CHANGED> hdrEntityHealthChanged = new List<DEL_ENTITY_HEALTH_CHANGED>();
+
+    protected void raiseOnEntityHealthChanged(int healthBefore, int healthAfter)
+    {
+        for (int i = 0; i < hdrEntityHealthChanged.Count; i++)
+        {
+            hdrEntityHealthChanged[i](healthBefore, healthAfter);
+        }
+    }
     [SerializeField] int health = 10;
     [SerializeField] float bulletFireDelay = 1.0f;
 
@@ -17,22 +29,37 @@ public class Entity : MonoBehaviour
             return isAlive;
         }
     }
-
-
-
-    public void TakeDamage(int damage)
+    public int Health
     {
+        get
+        {
+            return health;
+        }
+    }
+
+
+
+    public virtual void TakeDamage(int damage)
+    {
+        int healthBefore = Health;
         health -= damage;
         if(health <= 0)
         {
             Kill();
         }
+        int healthAfter = Health;
+        raiseOnEntityHealthChanged(healthBefore, healthAfter);
     }
 
-    public void Kill()
+    public virtual void Kill()
     {
         isAlive = false;
 
+    }
+    public virtual void Reset()
+    {
+        isAlive = true;
+        //체력을 기본 최대 체력으로 설정해야되요
     }
 
     //프로퍼티 Property 라고 합니다

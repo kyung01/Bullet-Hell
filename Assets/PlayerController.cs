@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        if(!entity.IsAlive )
+        if(!entity.IsAlive)
         {
             return;
         }
@@ -21,6 +21,13 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            entity.GetComponent<Player>().UseUltimate();
+
+        }
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 

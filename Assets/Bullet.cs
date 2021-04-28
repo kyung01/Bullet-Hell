@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -15,6 +16,15 @@ public class Bullet : MonoBehaviour
     BulletTarget bTarget;
     BulletType bType;
     bool isHit = false;
+
+    public bool IsHit {
+        get
+        {
+            return isHit;
+        }
+    }
+
+
     
     private void Awake()
     {
@@ -89,6 +99,12 @@ public class Bullet : MonoBehaviour
         }
 
         
+    }
+
+    public void Reset()
+    {
+        this.enabled = true;
+        this.isHit = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
